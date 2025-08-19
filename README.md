@@ -5,9 +5,9 @@
     Auth --> Dashboard["🖥️ AI Agent Management Dashboard"]
 
     %% Section 1: Task Execution
-    Dashboard --> TaskExec["▶ Task Execution\n(Run AI Tasks)"]
-    TaskExec --> AIEngine["🧠 AI Processing\n(Vertex AI / Azure Foundry)"]
-    AIEngine --> DataSources["📂 Data Sources\n(SQL, SharePoint, APIs, Cloud Storage)"]
+    Dashboard --> TaskExec["▶ Task Execution(Run AI Tasks)"]
+    TaskExec --> AIEngine["🧠 AI Processing(Vertex AI / Azure Foundry)"]
+    AIEngine --> DataSources["📂 Data Sources(SQL, SharePoint, APIs, Cloud Storage)"]
     DataSources --> AIEngine
     AIEngine --> Results["📊 Results Returned to User"]
     Results --> History["📜 View Task History"]
