@@ -14,7 +14,7 @@
 
     %% Section 2: Agent Creation
     Dashboard --> AgentCreation["➕ Create New AI Agent"]
-    AgentCreation --> Configure["⚙️ Configure Agent Settings\n(Basic + Advanced)"]
+    AgentCreation --> Configure["⚙️ Configure Agent Settings(Basic + Advanced)"]
     Configure --> ReadyAgent["🧩 Agent Ready to Use"]
     ReadyAgent --> TaskExec
 
@@ -24,5 +24,5 @@
     AgentCreation --> Recent
 
     %% Observability
-    Results --> Observability["📈 Observability & Audit\n(Logs, Metrics, Traces)"]
+    Results --> Observability["📈 Observability & Audit(Logs, Metrics, Traces)"]
     Recent --> Observability
