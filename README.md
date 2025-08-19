@@ -1,26 +1,28 @@
-# My Project
+ ```mermaid 
+ flowchart TD
+    %% Authentication
+    User["👤 User"] --> Auth["🔐 Authentication via Azure AD / SSO"]
+    Auth --> Dashboard["🖥️ AI Agent Management Dashboard"]
 
-This is a sample project demonstrating the use of Mermaid diagrams within a GitHub `README.md` file.
+    %% Section 1: Task Execution
+    Dashboard --> TaskExec["▶ Task Execution\n(Run AI Tasks)"]
+    TaskExec --> AIEngine["🧠 AI Processing\n(Vertex AI / Azure Foundry)"]
+    AIEngine --> DataSources["📂 Data Sources\n(SQL, SharePoint, APIs, Cloud Storage)"]
+    DataSources --> AIEngine
+    AIEngine --> Results["📊 Results Returned to User"]
+    Results --> History["📜 View Task History"]
 
-## Flowchart Example
+    %% Section 2: Agent Creation
+    Dashboard --> AgentCreation["➕ Create New AI Agent"]
+    AgentCreation --> Configure["⚙️ Configure Agent Settings\n(Basic + Advanced)"]
+    Configure --> ReadyAgent["🧩 Agent Ready to Use"]
+    ReadyAgent --> TaskExec
 
-Below is a simple flowchart illustrating a process.
+    %% Section 3: Recent Activity
+    Dashboard --> Recent["📂 Recent Agent Activity Log"]
+    TaskExec --> Recent
+    AgentCreation --> Recent
 
-```mermaid
-flowchart TD
-  A[User (Browser)] --> B[AAD Login]
-  B --> C{JWT Valid?}
-  C -->|No| X[Access Denied]
-  C -->|Yes| D[IAP passes identity headers]
-  D --> E[Fetch role entitlements]
-  E --> F[Personalize UI (menus/components)]
-  F --> G[Publish JSON (sessionId, action, params)]
-  G --> H[Worker validates authorization (RBAC)]
-  H --> I[Call Vertex AI / Azure Foundry]
-  I --> J[Await completion/callback]
-  J --> K[Publish result with sessionId]
-  K --> L[Browser filters by sessionId]
-  L --> M[Stream tokens (SSE / gRPC-web)]
-  J -.-> N[Failure?]
-  N --> O[Dead-letter topic]
-  O --> P[Alerts & retries (Cloud Functions)]
+    %% Observability
+    Results --> Observability["📈 Observability & Audit\n(Logs, Metrics, Traces)"]
+    Recent --> Observability
